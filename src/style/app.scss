@@ -1,0 +1,99 @@
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome.scss';
+
+$person-height: 100%;
+
+$dsa-red: #E72430;
+$padding-width: 30px;
+
+body {
+    background-color: $dsa-red;
+
+    height: 100%;
+    width: 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    div {
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    #app {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    img.person {
+        width: auto;
+        height: $person-height;
+        position: relative;
+        display: inline-block;
+        float: left;
+
+        &.facing-right {
+            float: right;
+        }
+    }
+
+    @import 'bubbles';
+
+    .landing {
+        height: 100%;
+        max-height: 100%;
+        width: 100%;
+        padding: $padding-width;
+
+        .first-person {
+            height: 30%;
+            max-height: 30%;
+            text-align: left;
+        }
+
+        .second-person {
+            height: 30%;
+            max-height: 30%;
+            text-align: right;
+        }
+
+        .footer {
+            height: 20%;
+            text-align: center;
+            color: white;
+            padding-top: 5%;
+
+            .next-page {
+                display: block;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .question {
+        height: 100%;
+        max-height: 100%;
+        width: 100%;
+        padding: $padding-width;
+
+        .contents {
+            padding: 30px 30px 30px 60px;
+            height: 100%;
+            width: 100%;
+            background: white;
+        }
+
+        .bubble {
+            &.left {
+                margin-left: 50px;
+            }
+
+            &.right {
+                margin-right: 50px;
+            }
+        }
+    }
+}
