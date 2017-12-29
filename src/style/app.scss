@@ -95,5 +95,11 @@ body {
                 margin-right: 50px;
             }
         }
+
+        .paginator {
+            width: %5;
+            float: right;
+            font-color: $dsa-red;
+        }
     }
 }

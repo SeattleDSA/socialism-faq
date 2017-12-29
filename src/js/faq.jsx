@@ -20,11 +20,14 @@ export default class FAQ extends React.Component {
 
     this.slides = this.slides.bind(this);
     this.loadQuestions = this.loadQuestions.bind(this);
+
+    this.totalPages = this.totalPages.bind(this);
+    this.currentPage =this.currentPage.bind(this);
   }
 
   render() {
     return (
-      <Scroller>
+      <Scroller ref="scroller">
         {this.slides()}
       </Scroller>
     );
@@ -32,13 +35,32 @@ export default class FAQ extends React.Component {
 
   slides() {
     return _.concat([
-      (<Section key="landing"><Landing /></Section>)
+      (
+        <Section key="landing">
+          <Landing />
+        </Section>
+      )
     ], this.loadQuestions());
   }
 
   loadQuestions() {
     return _.map(globals.questionsMarkdown, (md) => {
-      return (<Section key={md5(md)}><Question markdown={md} /></Section>);
+      return (
+        <Section key={md5(md)}>
+          <Question
+            markdown={md}
+            currentPage={this.currentPage()}
+            totalPages={this.totalPages()} />
+        </Section>
+      );
     });
+  }
+
+  currentPage() {
+    return this.refs.scroller.state.curPage;
+  }
+
+  totalPages() {
+    return _.size(globals.questionsMarkdown);
   }
 }
