@@ -14,6 +14,14 @@ export default class Question extends React.Component {
     return (
       <div className="question">
         <div className="contents">
+          <div className="right-speech-arrow">
+            <br />
+              <br />
+                <br />
+                  <div>
+                    <h1>&gt;</h1>
+                  </div>
+          </div>
           <div className="bubble left" dangerouslySetInnerHTML={{ __html: `<strong>${question}</strong>` }} />
           <div className="bubble right large" dangerouslySetInnerHTML={{ __html: answer }}/>
           <div style={{ clear: "both" }}/>
